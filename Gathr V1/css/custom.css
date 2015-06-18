@@ -20,3 +20,7 @@ width:100%;
   .active {
     background-color: #282828;
   }
+#1 li {
+    text-align: right;
+
+  }
