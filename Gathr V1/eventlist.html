@@ -145,27 +145,27 @@
                           <tbody>
                                <tr>
                                  <td>Event name</td>
-                                 <td>Venue name</td>
-                                 <td>Event datetime</td>
-                                 <td>X friends going</td>
-                                 <td>X friends interested</td>
-                                 <td>Interested</td>
+                                 <td>Artist Name</td>
+                                 <td>Venue</td>
+                                 <td>City</td>
+                                 <td>DateTime</td>
+                                 <td>Social</td>
                                </tr>
                                <tr>
                                  <td>Event name</td>
-                                 <td>Venue name</td>
-                                 <td>Event datetime</td>
-                                 <td>X friends going</td>
-                                 <td>X friends interested</td>
-                                 <td>Interested</td>
+                                 <td>Artist Name</td>
+                                 <td>Venue</td>
+                                 <td>City</td>
+                                 <td>DateTime</td>
+                                 <td>Social</td>
                                </tr>
                                <tr>
                                  <td>Event name</td>
-                                 <td>Venue name</td>
-                                 <td>Event datetime</td>
-                                 <td>X friends going</td>
-                                 <td>X friends interested</td>
-                                 <td>Interested</td>
+                                 <td>Artist Name</td>
+                                 <td>Venue</td>
+                                 <td>City</td>
+                                 <td>DateTime</td>
+                                 <td>Social</td>
                                </tr>
                              </tbody>
                            </table>
@@ -183,15 +183,66 @@
 var EventRow  = React.createClass({
   render: function(){
     return(
-      <div> Hello silly </div>
-    )
+      <div>
+      <tr>
+      <td>(this.props.event.name)</td>
+      <td>Artist Name</td>
+      </tr>
+      </div>
+    );
   }
 });
 
-React.render(<EventRow />, document.getElementById('ContainerElement'));
 
 
 
+var EventTable = React.createClass({
+  render: function(){
+    var rows = this.props.events.map(function(event){
+      return <EventRow key={event.name} event={event} />;
+    })
+
+
+    return(
+      <div class = "row spacer">
+      <div class = "col-lg-4 col-lg-offset-4">
+        <table width ="100%">
+         <thead>
+         <tr>
+          <th> Name></th>
+          <th> artist</th>
+          </tr>
+          </thead>
+          <<tbody>
+            {rows}
+          </tbody>
+          </table>
+          </div>
+          </div>
+    );
+  }
+})
+
+
+var events = [{
+     name :  "Best event ever",
+     artistname: "RHCP",
+   },{
+     name :  "Next best event",
+     artistname: "Muse",
+
+   },{
+     name :  "Third event",
+     artistname: "Shaggy",
+   },{
+     name :  "Fourth event",
+     artistname: "YOLO",
+
+   }
+];
+
+
+React.render((<EventTable events={events} />, document.getElementById('ContainerElement'));
 </script>
 
            <!-- Pagination -->
