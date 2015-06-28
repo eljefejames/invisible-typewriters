@@ -9,13 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Event details</title>
+    <title>GATHER</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<!-- bootstrap local CSS link-->
-<script src  ="invisible-typewriters/bootstrap/css/bootstrap-theme.min.css"
-</script>
+<!--React-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+<!--jsx transformer-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
     <!-- custom css -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -44,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">GATHER</a>
+                <a class="navbar-brand" href="#">GATHER</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -91,7 +92,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">
 
-                    <a class="btn btnq-default" href="#">Cities
+                    <a class="btn btn-default" href="#">Cities
                     </a>
                     <a class="btn btn-default" href="#">Popular
                     </a>
@@ -99,6 +100,11 @@
                     </a>
                     <a class="btn btn-default" href="#">Filter
                     </a>
+                    <div class="btn-group pull-right" role="group" aria-label="...">
+                      <button type="button" style="margin-left: 100px;" class="btn btn-default">Images</button>
+                      <button type="button" class="btn btn-default">Map</button>
+                      <button type="button" class="btn btn-default">List</button>
+                    </div>
                     <a class="btn btn-default pull-right" href="#">Months
                     </a>
                     <a class="btn btn-default pull-right" href="#">Weeks
@@ -111,112 +117,112 @@
             </div>
 
 </div>
-   <!--Event container-->
+   <!--container-->
 
 
-     <div class="container">
+               <div class="container" style="margin-top: 10px;">
+                           <div class="row">
+                             <div row>
+                               <!--event detail container-->
+                                 <div class="col-lg-12">
+                                   <div class="panel panel-default">
+                           <!-- Default panel contents -->
+                           <div class="panel-heading">Event list React Test</div>
 
-
-                 <div class="row">
-
-                   <div row>
-                   <div class="col-md-4 portfolio-item">
-                     <h3>
-                         <a href="/Users/lukepreddy/Documents/Github/invisible-typewriters/Gathr V1/eventdetail.html">Event  Name</a>
-                     </h3>
-                       <a href="/Users/lukepreddy/Documents/Github/invisible-typewriters/Gathr V1/eventdetail.html">
-                           <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                       </a>
-
+                           <!-- Table -->
+                           <table class="table">
+                             <thead>
+                            <tr>
+                              <th>Event Name</th>
+                              <th>Artist Name</th>
+                              <th>Venue</th>
+                              <th>City</th>
+                              <th>DateTime</th>
+                              <th>Social</th>
+                            </tr>
+                          </thead>
+                          <!--this is the beginning of the table body-->
+                          <tbody>
+                               <tr>
+                                 <td>Event name</td>
+                                 <td>Venue name</td>
+                                 <td>Event datetime</td>
+                                 <td>X friends going</td>
+                                 <td>X friends interested</td>
+                                 <td>Interested</td>
+                               </tr>
+                               <tr>
+                                 <td>Event name</td>
+                                 <td>Venue name</td>
+                                 <td>Event datetime</td>
+                                 <td>X friends going</td>
+                                 <td>X friends interested</td>
+                                 <td>Interested</td>
+                               </tr>
+                               <tr>
+                                 <td>Event name</td>
+                                 <td>Venue name</td>
+                                 <td>Event datetime</td>
+                                 <td>X friends going</td>
+                                 <td>X friends interested</td>
+                                 <td>Interested</td>
+                               </tr>
+                             </tbody>
+                           </table>
+                         </div>
+                       </div>
+                     </div>
                    </div>
                  </div>
-                 <div class="col-md-4 portfolio-item">
-                   <h3>
-                   <a href="#">Details</a>
-               </h3>
-                     <a href= "artistdetail.html"<p>Artist Name
-                     </a>
-                     </p>
-                     <p>Event DateTime
-                     </p>
-                     <p>Event Venue
-                     </p>
-                     <p>Event City
-                     </p>
-                 </div>
-                 <div class="col-md-4 portfolio-item">
-                   <h3>
-                   <a href="#">Social</a>
-               </h3>
-               <a href="index.html"><span class="glyphicon glyphicon-user"> X people are going</span></a>
-                 <a href="index.html"><span class="glyphicon glyphicon-user"> Y people you know are going</span></a>
-                   <a href="index.html"><span class="glyphicon glyphicon-user"> Z people are interested</span></a>
 
 
-                 </div>
-   </div>
- </div> <!-- end of container-->
+                         <!-- start of react static gui-->
+<div id = "ContainerElement"></div>
+<script type="text/jsx">
+
+var EventRow  = React.createClass({
+  render: function(){
+    return(
+      <div> Hello silly </div>
+    )
+  }
+});
+
+React.render(<EventRow />, document.getElementById('ContainerElement'));
 
 
 
-<!--dislaimer container-->
-    <div class="container">
+</script>
 
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div row>
-                    <p> </p>
-                  <div row>
-                    <p>Under 14s must be accompanied by an adult. We cannot issue refunds to under 14s who are not accompanied by an adult.
-
-                    </p>
-                  </div>
-                </div>
-              </div>
+           <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
             </div>
-    <div class="container">
-      <!--event detail container-->
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Ticket Sources</div>
-
-  <!-- Table -->
-  <table class="table">
-    <thead>
-   <tr>
-     <th>TicketSource</th>
-     <th>Cost (inc booking fee)</th>
-     <th>Quantity</th>
-   </tr>
- </thead>
- <!--this is the beginning of the table body-->
- <tbody>
-      <tr>
-        <td>Seetickets.com</td>
-        <td>£xx.xx</td>
-        <td>xx</td>
-      </tr>
-      <tr>
-        <td>Ticketmaster.com</td>
-        <td>£xx.xx</td>
-        <td>xx</td>
-      </tr>
-      <tr>
-        <td>Residentadvisor.com</td>
-        <td>£xx.xx</td>
-        <td>xx</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-        <hr>
-
-
+        </div>
         <!-- /.row -->
-
-
 
         <hr>
 
