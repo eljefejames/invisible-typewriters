@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang= "en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GATHER</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+    <div id="container" >
+    </div>
+<script type="text/jsx">
+
+
+        var EventRow = React.createClass({
+            render: function() {
+                return (
+                  <tr>
+                      <td>
+                      <a href="eventdetail.html">{this.props.episode.title}</a>
+                      </td>
+                      <td>
+                      <a href="artistdetail.html">{this.props.episode.artist}</a>
+                      </td>
+                      <td>
+                      {this.props.episode.venue}
+                      </td>
+                      <td>
+                      {this.props.episode.city}
+                      </td>
+                      <td>
+                      {this.props.episode.datetime}
+                      </td>
+                  </tr>
+                );
+            }
+        });
+
+var EventTable = React.createClass({
+  render: function (){
+    var props = this.props;
+    var rows = this.props.events
+    .filter(function(episode){
+      return episode.title.toLowerCase().indexOf(props.filterText.toLowerCase()) >-1;
+    })
+    .map(function(episode){
+      return <EventRow key={episode.title} episode={episode}  />;
+    });
+  return(
+    <div className="row spacer">
+        <div className="col-lg-6 col-lg-offset-3">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Artist</th>
+                        <th>Venue</th>
+                        <th>City</th>
+                        <th>DateTime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {rows}
+                </tbody>
+            </table>
+        </div>
+    </div>
+  );
+}
+});
+// <!-- this is some json data that we pass to episode row function-->
+
+var SearchBar = React.createClass({
+  handleChange: function(){
+    this.props.onFilterInput(
+      //this.refs.filterText.getDOMNode().value this method is deprecated
+      React.findDOMNode(this.refs.filterText)
+    );
+  },
+  render: function (){
+    return (
+      <div className="row ">
+          <div className="col-lg-6 col-lg-offset-3">
+              <input ref= "filterTextInput"
+              value = {this.props.filterTextInput}
+              onChange={this.handleChange}
+              type="text"
+              className="form-control"
+              placeholder="Search for event" />
+          </div>
+      </div>
+    );
+  }
+});
+
+var FilterableEpisodeTable = React.createClass({
+  getInitialState: function(){
+    return{
+      filterText: ''
+    };
+  },
+
+  handleFilterInput: function(filterText) {
+    this.setState({
+      //filterText: filtertext  manually setting the second to "DEF" causes the filter to work correctly.
+      filterText:
+    });
+  },
+
+  render: function (){
+    //making the rows to display
+    return (
+      <div className="spacer">
+      <SearchBar  filterText={this.state.filterText} onFilterInput={this.handleFilterInput} />
+      <EventTable filterText={this.state.filterText} events={this.props.events} />
+      </div>
+
+    );
+  }
+
+});
+
+
+//events have following attributes     <th>Title</th>
+//    <th>artist</th>
+  //  <th>venue</th>
+    //<th>city</th>
+  //  <th>dateTime</th>
+
+var events = [{
+  title : "Live with the chillies",
+  artist :  "RHCP",
+  venue :  "FABRIC",
+  city :  "London",
+  datetime :  "20th July 15",
+},{
+  title : "Thundercat feat Kendrick Lamar",
+  artist :  'Thundercat',
+  venue :  "Purple Turtle",
+  city :  "London",
+  datetime :  "21st July 15",
+},{
+  title : "DEF JAM 15",
+  artist :  'Weezy, Jeezy, Yeezy',
+  venue :  "The Nest",
+  city :  "London",
+  datetime :  "4th August 15",
+},{
+  title : "Camden Lock Festival",
+  artist :  'Libertines',
+  venue :  "FABRIC",
+  city :  "London",
+  datetime :  "20th September 15",
+}
+];
+
+  React.render( <FilterableEpisodeTable events={events} />, document.getElementById('container'));
+
+//this calls the Episode table function, which is a parent function of Episode row
+
+</script>
+
+
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+      </div><!--row-->
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</body>
+
+</html>
