@@ -1,122 +1,252 @@
-<!doctype html>
-<html lang= "en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>GATHER</title>
-  <!-- Bootstrap Core CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-</head>
-<body>
 
 
-      <div id="container" >
-      </div>
-  <script type="text/jsx">
+<!DOCTYPE html>
+<html>
+    <head>
 
-  var SearchBox = React.createClass({
-      doSearch:function(){
-          var query=this.refs.searchInput.getDOMNode().value; // this is the search text
-          this.props.doSearch(query);
-      },
-      render:function(){
-          return <input type="text" ref="searchInput" placeholder="Search Name" value={this.props.query} onChange={this.doSearch}/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Event Listings</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/Users/lukepreddy/Documents/Github/invisible-typewriters/bootstrap/css/custom.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+      </head>
+    <body>
+      body {
+          padding-top: 100px; <!-- Whatever the height of your navbar is the
+                            default is 50px -->
       }
-  });
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">GATHER</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="dropdown">
+                     <a href="profile.html" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                         <li><a href="profile.html">Profile</a></li>
+                         <li><a href="#">My Events</a></li>
+                         <li><a href="#">Messages</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#">Groups</a></li>
+                     </ul>
+                 </li>
+                         <li class="dropdown">
+                      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Promoters <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#">Events</a></li>
+                          <li><a href="#">Team</a></li>
+                          <li><a href="#">Account</a></li>
+                          <li class="divider"></li>
+                          <li><a href="registerpromoter.html">Register as a promoter</a></li>
+                      </ul>
+                  </li>
 
-  var DisplayTable = React.createClass({
-    render:function(){
-        //making the rows to display
-        var rows=[];
-        this.props.data.forEach(function(person) {
-        rows.push(<tr><td>{person.name}</td><td>{person.roll}</td></tr>)
-        });
-        //returning the table
-        return(
-             <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Roll No</th>
-                    </tr>
-                </thead>
-                <tbody>{rows}</tbody>
-            </table>
-        );
-    }
-});
 
-var InstantBox = React.createClass({
-    doSearch:function(queryText){
-        console.log(queryText)
-        //get query result
-        var queryResult=[];
-        this.props.data.forEach(function(person){
-            if(person.name.toLowerCase().indexOf(queryText)!=-1)
-            queryResult.push(person);
-        });
 
-        this.setState({
-            query:queryText,
-            filteredData: queryResult
-        })
-    },
-    getInitialState:function(){
-        return{
-            query:'',
-            filteredData: this.props.data
-        }
-    },
-    render:function(){
-        return (
-            <div className="InstantBox">
-                <h2>Void Canvas Instant Search</h2>
-                <SearchBox query={this.state.query} doSearch={this.doSearch}/>
-                <DisplayTable data={this.state.filteredData}/>
+
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-        );
-    }
-});
-
-React.render(<InstantBox data={tableData}/>,document.body);
-
-var tableData=[
-{
-    name:'Paul Shan',
-    roll: '001'
-},
-{
-    name:'John Doe',
-    roll: '002'
-},
-{
-    name:'Sachin Tendulkar',
-    roll: '003'
-}];
+            <!-- /.container -->
+        </nav>
 
 
 
+        <div class = "row">        <!--trying to make some empty space-->
+        </div>
+
+        <div class="container">
+            <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+
+                        <a class="btn btnq-default" href="#">Cities
+                        </a>
+                        <a class="btn btn-default" href="#">Popular
+                        </a>
+                        <a class="btn btn-default" href="#">All
+                        </a>
+                        <a class="btn btn-default" href="#">Filter
+                        </a>
+                        <a class="btn btn-default pull-right" href="#">Months
+                        </a>
+                        <a class="btn btn-default pull-right" href="#">Weeks
+                        </a>
+                        <a class="btn btn-default pull-right" href="#">Days
+                        </a>
+                        <div class="input-group pull-right" >
+                            <input id="n unit" type="textbox" placeholder="Search" class="form-control" >
+                    </h1>
+                </div>
+
+        </div>
+<!-- <div classname ="top-buffer" </div> -->
+        <div id="container">
+        </div>
+
+
+        <script type="text/jsx">
+        /** @jsx React.DOM */
+
+        var EventRow = React.createClass({
+            getInitialState: function() {
+                return {
+                    viewed: false
+                };
+            },
+            handleClick: function(){
+              this.setState({viewed: true});
+            },
+            render: function() {
+                return (
+                    <tr>
+                        <td>{this.props.event.title}</td>
+                        <td>{this.props.event.artist}</td>
+                        <td>{this.props.event.venue}</td>
+                        <td>{this.props.event.city}</td>
+                        <td>{this.props.event.datetime}</td>
+                    </tr>
+                );
+            }
+        });
+
+        var EventTable = React.createClass({
+            render: function() {
+              var props = this.props;
+              var rows = props.events
+                .filter(function(event){
+                  return event.title.toLowerCase().indexOf(props.filterText.toLowerCase()) > -1;
+                })
+                .map(function(event){
+                  return <EventRow key={event.title} event={event} />;
+                });
+
+
+              return (
+                  <div className="row spacer">
+                    <div className="col-lg-6 col-lg-offset-3">
+                      <table width="100%">
+                          <thead>
+                              <tr>
+                                  <th>Title</th>
+                                  <th>Artist</th>
+                                  <th>Venue</th>
+                                  <th>City</th>
+                                  <th>DateTime</th>
+                              </tr>
+                          </thead>
+                          <tbody>{rows}</tbody>
+                      </table>
+                    </div>
+                  </div>
+              );
+            }
+        });
+
+        var SearchBar = React.createClass({
+            handleChange: function() {
+                this.props.onUserInput(
+                    this.refs.filterTextInput.getDOMNode().value
+                );
+            },
+            render: function() {
+                return (
+                    <div className="row ">
+                      <div className="col-lg-4 col-lg-offset-4">
+                        <form onSubmit={this.handleSubmit}>
+                          <input ref="filterTextInput" value={this.props.filterText} onChange={this.handleChange} type="search" className="form-control" placeholder="Search for event" />
+                        </form>
+                      </div>
+                    </div>
+                );
+            }
+        });
+
+        var FilterableEventTable = React.createClass({
+            getInitialState: function() {
+                return {
+                    filterText: ''
+                };
+            },
+
+            handleUserInput: function(filterText) {
+                this.setState({
+                    filterText: filterText
+                });
+            },
+
+            render: function() {
+                return (
+                    <div className="spacer">
+                        <SearchBar onUserInput={this.handleUserInput} filterText={this.state.filterText} />
+                        <EventTable filterText={this.state.filterText} events={this.props.events} />
+                    </div>
+                );
+            }
+        });
 
 
 
-  </script>
+        //events have following attributes     <th>Title</th>
+        //    <th>artist</th>
+          //  <th>venue</th>
+            //<th>city</th>
+          //  <th>dateTime</th>
 
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        var events = [{
+          title : "Live with the chillies",
+          artist :  "RHCP",
+          venue :  "FABRIC",
+          city :  "London",
+          datetime :  "20th July 15",
+        },{
+          title : "Thundercat feat Kendrick Lamar",
+          artist :  'Thundercat',
+          venue :  "Purple Turtle",
+          city :  "London",
+          datetime :  "21st July 15",
+        },{
+          title : "DEF JAM 15",
+          artist :  'Weezy, Jeezy, Yeezy',
+          venue :  "The Nest",
+          city :  "London",
+          datetime :  "4th August 15",
+        },{
+          title : "Camden Lock Festival",
+          artist :  'Libertines',
+          venue :  "FABRIC",
+          city :  "London",
+          datetime :  "20th September 15",
+        }
+        ];
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        React.render(<FilterableEventTable events={events} />, document.getElementById('container'));
 
-</body>
-
+        </script>
+    </body>
 </html>

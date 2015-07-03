@@ -92,7 +92,7 @@ var SearchBar = React.createClass({
       <div className="row ">
           <div className="col-lg-6 col-lg-offset-3">
               <input ref= "filterTextInput"
-              value = {this.props.filterText}
+              value = {this.props.filterTextInput}
               onChange={this.handleChange}
               type="text"
               className="form-control"
@@ -113,7 +113,7 @@ var FilterableEpisodeTable = React.createClass({
   handleFilterInput: function(filterText) {
     this.setState({
       //filterText: filtertext  manually setting the second to "DEF" causes the filter to work correctly.
-      filterText: filterText
+      filterText:
     });
   },
 
