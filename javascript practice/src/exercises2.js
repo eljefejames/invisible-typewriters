@@ -1,12 +1,12 @@
-  var x = 2;
+var x = 2;
 
 function isEven (number) {
 
 }
 
 function findEven(n, x) {
-    if (n - x == 0) {
-      console.log("Even")
+  if (n - x == 0) {
+    console.log("Even")
   }
   else if (n - x == 1) {
     console.log("Odd");
@@ -19,15 +19,15 @@ function findEven(n, x) {
 
 /*findEven(50, x);*/
 function countBs(text, character) {
-var y = 0
-    textLength = text.length;
+  var y = 0
+  textLength = text.length;
   for (i= 0 ; i < (textLength); i++)
   {
-  if (text.charAt(i) === character) {
-    y = y + 1;
-        }
+    if (text.charAt(i) === character) {
+      y = y + 1;
+    }
   }
-      console.log(y + " is the number of" + character);
+  console.log(y + " is the number of" + character);
 };
 dummyText = "BehudjBPJw2wBBB";
 
