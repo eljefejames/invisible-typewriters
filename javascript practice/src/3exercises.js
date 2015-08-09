@@ -70,6 +70,15 @@ else if (n==0) {
 
 console.log(listBuild.rest.rest.rest.rest); /* you access nested properties of the same name by adding repeated .notation
 
-
+*/
 nth(listBuild,1)
-//console.log(nth(listBuild,2))
+console.log(nth(listBuild,2))
+
+
+function nth(list, n) {
+  if (!list)
+    return undefined;
+  else if (n == 0)
+    return list.value;
+  else
+    return nth(list.rest, n - 1);
