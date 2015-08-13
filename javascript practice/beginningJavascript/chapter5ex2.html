@@ -1,0 +1,50 @@
+<!-- //Obtain a list of names from the user, storing each name entered in an array.
+// Keep getting another name until the user enters nothing. Sort the names in ascending order and then write them out to the page,
+//with each name on its own line. -->
+
+
+<html>
+   <head><title>Test Template</title></head>
+   <body>
+
+     <script>
+var input = true;
+var nameArray =  [];
+
+function AddName(name) {
+  this.name = name;
+  nameArray.push(this.name);
+  console.log(nameArray);
+}
+
+while (input ===true) {
+var newName = prompt("whats the name ");
+if (newName == '') {
+input = false;
+console.log("nothing here dude")
+}
+else {
+  console.log(newName);
+  AddName(newName);
+}}
+nameArray.sort();
+
+var stringList;
+var ptagOpen = "<p>";
+var ptagClose = "</p>";
+
+for  (name in nameArray) {
+  var ptagOpen = "<p>";
+  stringList =nameArray[name];
+  var ptagClose = "</p>";
+
+  var stringOut = ptagOpen + stringList + ptagClose;
+  document.write(stringOut)
+}
+
+   </script>
+
+
+
+ </body>
+   </html>
