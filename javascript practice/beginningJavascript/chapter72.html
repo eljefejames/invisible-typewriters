@@ -1,0 +1,193 @@
+ <!-- Create a user interface that allows the user to pick the computer system of their dreams,
+  simi- lar in principle to the e-commerce sites selling computers over the Internet.
+  For example, they could be given a choice of processor type, speed, memory, and hard drive size,
+   and the option to add additional components like a DVD-ROM drive, a sound card, and so on.
+   As the user changes their selections, the price of the system should update automatically and
+    notify them of the cost of the system as they specified it, either by using an alert box or by
+     updating the con- tents of a text box. -->
+
+<!DOCTYPE html PUBLIC>
+<html>
+ <head>
+<title>Chapter 7: Example 6</title>
+ <script>
+
+var count = 0;
+var cdRom = {
+Name: 'CD',
+Value :1
+};
+var dvd = {
+Name: 'dvdDrive',
+Value :2
+};
+var floppy = {
+Name: 'floppyDisc',
+Value :3
+};
+var sixtyFourMB = {
+Name: '64megabytes',
+Value :1
+};
+var oneTwentyEightMB = {
+Name: '128megabytes',
+Value :2
+};
+var twoFiftySixMB = {
+Name: '256megabytes',
+Value :3
+};
+var ThreeGhz = {
+Name: '3.8',
+Value :1
+};
+var FourGhz = {
+Name: '4.6',
+Value :2
+};
+var SixGhz = {
+Name: '6',
+Value :3
+};
+
+var priceArray = [];
+
+function handleChange (type) {
+  if (type.name ==="chkDVD" && document.getElementById("chk1").checked === true) {
+    calcPrice (1);
+  }
+  else  if (type.name ==="chkDVD" && document.getElementById("chk1").checked === false) {
+        calcPrice (1,true)
+    }
+
+  else if (type.name ==="chkCD" && document.getElementById("chk2").checked === true) {
+    calcPrice (1);
+  }
+  else if (type.name ==="chkCD" && document.getElementById("chk2").checked === false) {
+    calcPrice (1,true);
+  }
+  else if ((type.name) ==="chkZip"  && document.getElementById("chk3").checked === true) {
+    calcPrice (1);
+  }
+  else if ((type.name) ==="chkZip"  && document.getElementById("chk3").checked === false) {
+    calcPrice (1,true);
+  }
+}
+
+function memoryHandler (that) {
+if (document.getElementById("rad1").checked === true) {
+  calcPrice (2);
+}
+else if (document.getElementById("rad2").checked === true) {
+  priceArray.push(twoFiftySixMB)
+  calcPrice (3);
+}
+else if (document.getElementById("rad3").checked === true)  {
+  priceArray.push(sixtyFourMB)
+  calcPrice (1);
+}
+}
+
+function speedHandler (that) {
+  if (document.getElementById("rad4").checked === true)  {
+    calcPrice (1);
+  }
+  else if (document.getElementById("rad5").checked === true) {
+    console.log(4.8);
+    priceArray.push(FourGhz);
+    calcPrice (2);
+  }
+  else if (document.getElementById("rad6").checked === true)  {
+    console.log(6);
+    priceArray.push(SixGhz);
+    calcPrice (3);
+  }
+};
+
+function arrayFinder (array, obj)
+ {
+   for (map in array) {
+   if (obj ===(priceArray[map].Name)) {
+   console.log('match found')
+   var position = map
+   return position
+ }
+}}
+
+function calcPrice (price, minus) {
+if (minus) {
+  count = count - price
+}
+else {
+  count = count + price
+}
+  console.log("the price is " + count + "million rupees");
+  document.getElementById("priceField").value =count
+}
+
+</script>
+</head>
+<body>
+<form action=”“ name=”form1”>
+<p>
+Tick all of the components you want included on your computer
+</p> <table>
+<tr> <td>
+DVD-ROM </td>
+<td>
+<input id= "chk1" type="checkbox" name="chkDVD" value=”DVD-ROM” onchange = "handleChange(this)" />
+</td> </tr>
+<tr> <td>
+CD-ROM </td>
+<td>
+<input id= "chk2" type="checkbox" name="chkCD" value="CD-ROM" onchange = "handleChange(this)" />
+</td> </tr>
+<tr> <td>
+Zip Drive </td>
+<td>
+<input id= "chk3"  type="checkbox" name="chkZip" value="ZIP Drive" onchange = "handleChange(this)" />
+</td> </tr>
+</table> <p>
+Select the Memory you need</p>
+<table> <tr>
+<td>
+<input id ="rad1"type="radio" name="radMem" checked="checked" value="64 mb" onclick= "memoryHandler (this)" />
+
+</td> <td>
+64 mb </td>
+<td>
+<input id ="rad2" type="radio" name="radMem" value="128 mb"
+  onclick="memoryHandler (this)" />
+  </td> <td>
+  128 </td>
+  <td>
+  <input id ="rad3" type="radio" name="radMem" value="256 mb"
+  onclick="memoryHandler (this)" />
+  </td> <td>
+  256 </td>
+  </tr> </table>
+  Select the processor speed you require </p>
+  <table> <tr>
+  <td>
+  <input  id ="rad4" type="radio" name="radCPUSpeed" checked="checked"
+  value="3.8 GHz" onclick="speedHandler (this)" />
+
+  </td> <td>
+  3.8 GHz </td>
+  <td>
+  <input id ="rad5" type="radio" name="radCPUSpeed" value="4.8 GHz"
+    onclick= "speedHandler (this)" />
+    </td> <td>
+    4.8 GHz </td>
+    <td>
+    <input id ="rad6" type="radio" name="radCPUSpeed" value="6 Ghz"
+    onclick="speedHandler (this)" />
+    </td> <td>
+    6 GHz </td>
+    </tr> </table>
+  <!-- <input type="button" value="Check Form" name="btnCheck" onclick="return btnCheck_onclick()" /> -->
+  Total Price <input id ="priceField" type="text" name ="priceTotal" />
+  <input type="button" value="click me" onclick="calcPrice ()" />
+  </form>
+</body>
+  </html>

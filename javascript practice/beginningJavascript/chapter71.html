@@ -1,0 +1,26 @@
+<!-- Using the code from the temperature converter example you saw in Chapter 2,
+create a user interface for it and connect it to the existing code so that the user
+ can enter a value in degrees Fahrenheit and convert it to centigrade. -->
+
+<html>
+<body>
+  <form name="myForm">
+  <p>
+    Temp in Fahrenheight
+  </p>
+   <input  type="text" name ="tempFahrenheight" value="">
+  </input>
+  <input  type="button" name ="updateButton" value="Click me" onclick= update();>
+ </input>
+  </form>
+<script>
+function update (){
+  console.log('firing')
+  var degFahren = document.myForm['tempFahrenheight'].value
+  var degCent;
+   degCent = 5/9 * (degFahren - 32);
+   alert(degFahren + "\xB0 Fahrenheit is" + degCent + " \xB0 centigrade")
+}
+</script>
+</body>
+ </html>

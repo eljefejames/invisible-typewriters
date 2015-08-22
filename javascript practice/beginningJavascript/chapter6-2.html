@@ -1,0 +1,23 @@
+<!--
+2. Create two pages, one called ieonly.htm and the other called notieonly.htm. Each page should have a
+heading telling you what page is loaded. For example:
+<H2>Welcome to the Internet Explorer only page</H2>
+Using the functions for checking browser type, connect to the window object’s onload event handler and
+detect what browser the user has. Then, if it’s the wrong page for that browser, redirect to the other page. -->
+
+<html>
+<head><title>Test Template</title></head>
+<body>
+  <P>
+    This is some text
+  </P>
+  <div id="divtest">
+  </div>
+<script>
+var browser = navigator.appName;
+console.log(browser);
+var divTest = document.getElementById("divtest");
+divTest.innerHTML = divTest.innerHTML + browser;
+</script>
+ </body>
+   </html>

@@ -1,0 +1,42 @@
+<!-- Create a page with a number of links. Then write code that fires on the window load event,
+displaying the href of each of the links on the page. (Hint: Remember that event handlers begin with on.) -->
+
+<html>
+<head><title>Test Template</title></head>
+<body onload = "showLinks_onLoad()">
+  <P>
+    <a id = "mylink1"href="http://www.google.com" > a </a>
+  </P>
+  <P>
+    <a id = "mylink2" href="http://www.guardian.co.uk" > b </a>
+  </P>
+  <P>
+    <a id = "mylink3" href="http://www.yahoo.com" > c </a>
+  </P>
+  <P>
+    <a id = "mylink4" href="http://www.bbc.com" > d </a>
+  </P>
+
+<div id = 'div1'>
+
+</div>
+
+<script>
+
+function showLinks_onLoad () {
+var len = document.links.length;
+
+for (i = 0; (i < (len)); i++) {
+var x = document.links[i].href;
+var string = '<p>' + x +'</p>';
+console.log(string);
+
+var theDiv = document.getElementById("div1");
+theDiv.innerHTML = theDiv.innerHTML + string;
+}
+}
+
+
+</script>
+ </body>
+   </html>
